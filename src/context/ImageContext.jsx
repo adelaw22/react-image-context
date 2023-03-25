@@ -20,7 +20,7 @@ const ImageProvider = ({children}) => {
     }
 
 
-    return <ImageContext.Provider values={{images, isLoading, imageData }}>
+    return <ImageContext.Provider value={{images, isLoading, imageData }}>
         {children}
     </ImageContext.Provider>
 }
