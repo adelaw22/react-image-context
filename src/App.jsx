@@ -1,9 +1,9 @@
-import { BrowserRouter as Router,  Route} from "react-router-dom"
-import { Box } from "@mui/material"
-import { ThemeProvider } from "@mui/material/styles"
-import { styled } from "@mui/material/styles"
+import { BrowserRouter as Router, Routes,  Route} from "react-router-dom"
+import { styled,ThemeProvider, Box } from "@mui/material"
 import { GlobalTheme } from "./GlobalTheme"
 import Header from './layouts/Header'
+// import Loader from "./components/Loader"
+import Gallery from './components/Gallery'
 
  const ContentWrapper = styled(Box)`
     min-width:70%;
@@ -11,21 +11,23 @@ import Header from './layouts/Header'
     margin-inline: auto;
   `
   
-function App() {
-
-  // const 
- 
+function App() {  
 
   return (
     <ThemeProvider theme={GlobalTheme}>
       <Router>
         <ContentWrapper>
           <Header/>
-        </ContentWrapper>
-{/* 
+           {/* <Loader/> */}
         <Routes>
-            <Route path="/" element={<SignIn />} />
-        </Routes> */}
+            <Route path="/" element={<Gallery />} />
+            {/* <Route path="/" element={<Gallery />} />
+            <Route path="/" element={<Gallery />} />
+            <Route path="/" element={<Gallery />} /> */}
+        </Routes>
+        </ContentWrapper>
+
+       
       </Router>
       
     </ThemeProvider>

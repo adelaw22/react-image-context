@@ -1,5 +1,6 @@
-import React from 'react'
-import { styled, Box, TextField, Button, InputAdornment } from '@mui/material'
+import React, { useState, useContext, useRef } from 'react'
+import { ImageContext } from '../context/ImageContext';
+import { styled, Box, Button} from '@mui/material'
 import CustomInput from '../components/CustomInput';
 import BrandLogo from '../assets/Brandlogo.png'
 import NavFilter from '../components/NavFilter';
@@ -37,7 +38,14 @@ import NavFilter from '../components/NavFilter';
 
     
 const Header = () => {
-  
+  const {images, imageData} = useContext(ImageContext)
+  const [inputValue, setInputValue] = useState("")
+
+  const handleSubmit = ()=>{
+      imageData(inputValue)
+      setInputValue("")
+  }
+ console.log(images)
 
   return (
     <DivWrapper>
@@ -46,8 +54,8 @@ const Header = () => {
         </LogoWrapper>
 
         <SearchWrapper>
-         <CustomInput/>
-          <Button variant="contained">Search</Button>
+         <CustomInput name="search" onChange={(e)=>setInputValue(e.target.value)} value={inputValue} />
+          <Button  variant="contained" onClick={handleSubmit} disabled={!inputValue} >Search</Button>
         </SearchWrapper>
         <NavFilter/>  
      

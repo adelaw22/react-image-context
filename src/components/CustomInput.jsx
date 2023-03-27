@@ -6,7 +6,7 @@ const CInput = styled(TextField)`
     width:50%    
 `
 
-const CustomInput = () => {
+const CustomInput = ({name, value, ...rest}) => {
     
 
   return (
@@ -19,8 +19,12 @@ const CustomInput = () => {
             </InputAdornment>
           ),
         }}
+        type="search"
+        name={name}
+        value={value}
         variant="outlined"
         size="small"
+        {...rest}
       />
     </>
   )

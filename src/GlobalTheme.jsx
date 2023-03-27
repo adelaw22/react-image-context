@@ -16,6 +16,11 @@ export const GlobalTheme = createTheme({
     },
     typography:{
         fontFamily:['Montserrat', 'sans-serif'].join(','),
+        fontSize: 12,
+        h3:{
+            fontWeight: '700',
+            fontSize: '2rem',
+        }
     },
     spacing: [0, 4, 8, 16, 32, 64],
 });
