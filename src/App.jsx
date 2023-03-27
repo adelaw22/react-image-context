@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Routes,  Route} from "react-router-dom"
+import React, { useState, useContext } from 'react'
+import { BrowserRouter as Router, Routes,  Route, useParams} from "react-router-dom"
+import { ImageContext } from './context/ImageContext';
 import { styled,ThemeProvider, Box } from "@mui/material"
 import { GlobalTheme } from "./GlobalTheme"
 import Header from './layouts/Header'
-// import Loader from "./components/Loader"
 import Gallery from './components/Gallery'
 
  const ContentWrapper = styled(Box)`
@@ -12,18 +13,24 @@ import Gallery from './components/Gallery'
   `
   
 function App() {  
+  const {isLoading, images, imageData} = useContext(ImageContext)
+
+  console.log(images)
+
 
   return (
     <ThemeProvider theme={GlobalTheme}>
       <Router>
         <ContentWrapper>
-          <Header/>
-           {/* <Loader/> */}
+          <Header imageData={imageData}/>
+      
         <Routes>
-            <Route path="/" element={<Gallery />} />
-            {/* <Route path="/" element={<Gallery />} />
-            <Route path="/" element={<Gallery />} />
-            <Route path="/" element={<Gallery />} /> */}
+            <Route path="/" element={<Gallery searchValue='life' />} />
+            <Route path="/life" element={<Gallery searchValue='life' />} />
+            <Route path="/human" element={<Gallery searchValue="human" />} />
+            <Route path="/race" element={<Gallery searchValue="race"/>} />
+            <Route path="/origin" element={<Gallery searchValue="origin"/>} />
+            <Route path="/:searchvalue" element={<Gallery searchValue="origin"/>} />
         </Routes>
         </ContentWrapper>
 

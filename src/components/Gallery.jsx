@@ -1,7 +1,8 @@
-import React, {useContext} from 'react'
+import React, { useContext, useEffect } from 'react'
+import { ImageContext } from '../context/ImageContext';
 import {styled,Typography, Box, Grid} from '@mui/material'
 import Loader from './Loader'
-import { ImageContext } from '../context/ImageContext'
+import ImageContainer from './ImageContainer'
 
 const GalleryWrapper = styled(Box)(
     ({theme})=>`
@@ -14,29 +15,23 @@ const LabelTag = styled(Box)(({theme})=>`
     padding: ${theme.spacing(2)}
 `)
 
-const Gallery = () => {
-  const {isLoading, images} = useContext(ImageContext)
+const Gallery = ({searchValue}) => {
+  const {isLoading, images, imageData } = useContext(ImageContext)
+
+  useEffect(()=>{
+    imageData(searchValue)
+  },[searchValue])
 
 
   return(
-  <>
- <Loader/> 
-  <GalleryWrapper>
+    <GalleryWrapper>
        <LabelTag>
-            <Typography variant="h3">LIFE</Typography>
+            <Typography variant="h3">{searchValue}'s Images</Typography>
        </LabelTag>
-
-      
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}> 
-            {/* {Array.map((_, index) => (
-                <Grid  xs={2} sm={4} md={4} key={index}>
-                    <img src={} alt=''/>
-                </Grid>
-            ))} */}
-      </Grid>
-
+       {isLoading ?  <Loader/> : <ImageContainer data={images}/>}
+       
     </GalleryWrapper>
-    </>
+   
     )
 
 }

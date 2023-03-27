@@ -1,5 +1,5 @@
-import React, { useState, useContext, useRef } from 'react'
-import { ImageContext } from '../context/ImageContext';
+import React, { useState} from 'react'
+import { useNavigate} from 'react-router-dom';
 import { styled, Box, Button} from '@mui/material'
 import CustomInput from '../components/CustomInput';
 import BrandLogo from '../assets/Brandlogo.png'
@@ -37,16 +37,16 @@ import NavFilter from '../components/NavFilter';
    )
 
     
-const Header = () => {
-  const {images, imageData} = useContext(ImageContext)
+const Header = ({imageData }) => {
+  const navigate = useNavigate()
   const [inputValue, setInputValue] = useState("")
 
   const handleSubmit = ()=>{
       imageData(inputValue)
-      setInputValue("")
+      navigate(`/${inputValue}`)
+      setInputValue("")  
   }
- console.log(images)
-
+ 
   return (
     <DivWrapper>
         <LogoWrapper>
