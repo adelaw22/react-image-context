@@ -5,7 +5,7 @@ const GridBox = styled(Box)(({theme})=>`
     display:grid;
     grid-template-columns: repeat(4, 1fr);
     gap:16px;
-
+    margin-block:${theme.spacing(4)}
 `)
 
 const ImgBox = styled(Box)(({theme})=>`

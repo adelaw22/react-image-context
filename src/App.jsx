@@ -13,9 +13,7 @@ import Gallery from './components/Gallery'
   `
   
 function App() {  
-  const {isLoading, images, imageData} = useContext(ImageContext)
-
-  console.log(images)
+  const {images, imageData} = useContext(ImageContext)
 
 
   return (
@@ -30,7 +28,7 @@ function App() {
             <Route path="/human" element={<Gallery searchValue="human" />} />
             <Route path="/race" element={<Gallery searchValue="race"/>} />
             <Route path="/origin" element={<Gallery searchValue="origin"/>} />
-            <Route path="/:searchvalue" element={<Gallery searchValue="origin"/>} />
+            <Route path="/:searchvalue" element={<Gallery/>} />
         </Routes>
         </ContentWrapper>
 

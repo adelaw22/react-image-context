@@ -7,8 +7,8 @@ const ImageProvider = ({children}) => {
     const [images, setImages] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    const imageData = query=>{
-        axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${import.meta.env.VITE_FLICKR_KEY}&tags=${query}&per_page=16&format=json&nojsoncallback=1`).then((response) => {
+    const imageData = async( query)=>{
+        await axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${import.meta.env.VITE_FLICKR_KEY}&tags=${query}&per_page=16&format=json&nojsoncallback=1`).then((response) => {
             setImages(response.data.photos.photo);
             setIsLoading(false);
         }).catch((error) => {

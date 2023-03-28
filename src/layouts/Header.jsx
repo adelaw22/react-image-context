@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { styled, Box, Button} from '@mui/material'
 import CustomInput from '../components/CustomInput';
 import BrandLogo from '../assets/Brandlogo.png'
