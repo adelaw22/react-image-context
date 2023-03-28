@@ -7,8 +7,8 @@ import Header from './layouts/Header'
 import Gallery from './components/Gallery'
 
  const ContentWrapper = styled(Box)`
-    min-width:70%;
-    width:70%;
+    max-width:90%;
+    width:80%;
     margin-inline: auto;
   `
   
