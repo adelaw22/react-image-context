@@ -7,13 +7,16 @@ import Header from './layouts/Header'
 import Gallery from './components/Gallery'
 
  const ContentWrapper = styled(Box)`
-    max-width:90%;
+    // min-width:80%;
     width:80%;
     margin-inline: auto;
+    @media (max-width: 960px){
+      width: 96%;
+    }
   `
   
 function App() {  
-  const {images, imageData} = useContext(ImageContext)
+  const {imageData} = useContext(ImageContext)
 
 
   return (

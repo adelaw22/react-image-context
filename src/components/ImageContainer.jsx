@@ -3,9 +3,12 @@ import {styled, Box} from '@mui/material'
 
 const GridBox = styled(Box)(({theme})=>`
     display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap:16px;
-    margin-block:${theme.spacing(4)}
+    margin-block:${theme.spacing(4)};
+    @media (max-width:560px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `)
 
 const ImgBox = styled(Box)(({theme})=>`

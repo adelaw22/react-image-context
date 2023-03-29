@@ -24,6 +24,11 @@ import NavFilter from '../components/NavFilter';
         min-width:50%;
         margin-inline: ${theme.spacing("auto")};
       }
+      @media (max-width: 960px){
+        img{
+          width:70%;
+        }
+      }
     `
    )
    const SearchWrapper = styled(Box)(

@@ -3,7 +3,10 @@ import { styled, TextField, InputAdornment } from '@mui/material'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
 const CInput = styled(TextField)`
-    width:50%    
+    width:50%;
+    @media (max-width: 768px){
+      width:70%;
+    }   
 `
 
 const CustomInput = ({name, value, ...rest}) => {
